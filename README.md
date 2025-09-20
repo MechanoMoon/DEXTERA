@@ -5,6 +5,15 @@
   <title>Dextera - Assistive Glove</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling */
+    }
+    .active-link {
+      color: #2563eb; /* Electric blue for active section */
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 font-sans text-gray-800">
 
@@ -12,13 +21,27 @@
   <nav class="bg-gray-200 shadow-md fixed top-0 w-full z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold text-gray-900">Dextera</h1>
-      <div class="space-x-6">
+      <div class="hidden md:flex space-x-6" id="nav-links">
         <a href="#about" class="text-gray-900 hover:text-blue-600">About</a>
         <a href="#features" class="text-gray-900 hover:text-blue-600">Features</a>
         <a href="#pricing" class="text-gray-900 hover:text-blue-600">Pricing</a>
         <a href="#upgrades" class="text-gray-900 hover:text-blue-600">Future Upgrades</a>
         <a href="#contact" class="text-gray-900 hover:text-blue-600">Contact</a>
       </div>
+      <button id="mobile-menu-btn" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden px-6 pb-4" id="mobile-menu">
+      <a href="#about" class="block py-2 text-gray-900 hover:text-blue-600">About</a>
+      <a href="#features" class="block py-2 text-gray-900 hover:text-blue-600">Features</a>
+      <a href="#pricing" class="block py-2 text-gray-900 hover:text-blue-600">Pricing</a>
+      <a href="#upgrades" class="block py-2 text-gray-900 hover:text-blue-600">Future Upgrades</a>
+      <a href="#contact" class="block py-2 text-gray-900 hover:text-blue-600">Contact</a>
     </div>
   </nav>
 
@@ -136,7 +159,38 @@
   </footer>
 
   <script>
+    // ScrollReveal animations
     ScrollReveal().reveal('section', { delay: 200, distance: '50px', origin: 'bottom', interval: 200 });
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Active link highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('#nav-links a, #mobile-menu a');
+
+    window.addEventListener('scroll', () => {
+      let scrollY = window.pageYOffset;
+
+      sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 80; // Adjust for navbar height
+        const sectionId = section.getAttribute('id');
+
+        if(scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active-link');
+            if(link.getAttribute('href') === '#' + sectionId) {
+              link.classList.add('active-link');
+            }
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
