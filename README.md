@@ -9,7 +9,7 @@
 <body class="bg-gray-100 font-sans text-gray-800">
 
   <!-- Navbar -->
-  <nav class="bg-gray-200 shadow-md fixed w-full z-50">
+  <nav class="bg-gray-200 shadow-md fixed top-0 w-full z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold text-gray-900">Dextera</h1>
       <div class="space-x-6">
@@ -23,7 +23,7 @@
   </nav>
 
   <!-- Hero -->
-  <section class="bg-gray-100 text-gray-900 h-screen flex items-center" id="hero">
+  <section class="bg-gray-100 text-gray-900 h-screen flex items-center pt-24" id="hero">
     <div class="container mx-auto px-6 text-center">
       <h2 class="text-5xl font-bold mb-6">Dextera: Stabilizing Hands, Empowering Lives</h2>
       <p class="text-lg mb-8">A revolutionary wearable glove designed to support individuals with tremors, autism, and motor difficulties. Dextera blends comfort, smart technology, and elegance into a single assistive device.</p>
@@ -33,7 +33,7 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="py-20 container mx-auto px-6">
+  <section id="about" class="py-20 container mx-auto px-6 pt-24">
     <h3 class="text-3xl font-bold text-center mb-10">About Dextera</h3>
     <p class="text-lg text-center max-w-3xl mx-auto">Dextera is not just a glove—it is an assistive companion crafted with care for people facing hand tremors, Parkinson’s, autism, or challenges in fine motor control. By combining lightweight materials, subtle design, and advanced stabilization technology, Dextera helps individuals regain confidence in daily tasks like writing, eating, or holding objects.</p>
   </section>
@@ -109,7 +109,7 @@
   <section id="contact" class="py-20 container mx-auto px-6">
     <h3 class="text-3xl font-bold text-center mb-10">Contact Us</h3>
     <div class="max-w-2xl mx-auto">
-      <form action="https://formspree.io/f/mrbanodg" method="POST" class="bg-white shadow-md rounded-xl p-6">
+      <form action="https://formspree.io/f/maykpebj" method="POST" class="bg-white shadow-md rounded-xl p-6">
         <label class="block mb-4">
           <span class="text-gray-700">Your Name</span>
           <input type="text" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
